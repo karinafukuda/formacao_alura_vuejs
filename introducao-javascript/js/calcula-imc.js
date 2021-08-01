@@ -11,7 +11,6 @@ for (var i = 0; i < pacientes.length; i++){
  var peso = tdPeso.textContent;
  console.log(peso);
 
-
   var tdAltura = paciente.querySelector(".info-altura");
   var altura = tdAltura.textContent;
   console.log(altura);
