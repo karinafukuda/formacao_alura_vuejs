@@ -5,8 +5,7 @@ botaoAdicionar.addEventListener( "click", function (event){
  var form = document.querySelector("#form-adiciona");
  //Extraindo informações do paciente do form
  var paciente = obtemPacienteDoForm(form);
- //Cria o campo na tabela
- var pacienteTr = montaTr(paciente);
+ 
  //Valida se o paciente é true or false
  var erros = validaPaciente(paciente);
 
@@ -14,15 +13,9 @@ botaoAdicionar.addEventListener( "click", function (event){
   exibeMensagensDeErro(erros);
    return;
  }
-
- // if(!validaPaciente(paciente)){
- //  console.log("Paciente inválido")
- //  return;
- // }
-
- //Adiciona paciente na tabela
- var tabela = document.querySelector("#tabela-pacientes");
- tabela.appendChild(pacienteTr);
+ 
+ adicionaTPacienteNaTabela(paciente);
+ 
  //Limpar os campos após adição na tabela
  form.reset();
  var mensagensErro = document.querySelector("#mensagens-erro");
@@ -38,6 +31,14 @@ function obtemPacienteDoForm(form){
    imc: calculaImc (form.peso.value, form.altura.value)
  }
  return paciente;
+}
+
+function adicionaTPacienteNaTabela(paciente){
+  //Cria o campo na tabela
+  var pacienteTr = montaTr(paciente);
+  //Adiciona paciente na tabela
+ var tabela = document.querySelector("#tabela-pacientes");
+ tabela.appendChild(pacienteTr);
 }
 
 function montaTr (paciente){
